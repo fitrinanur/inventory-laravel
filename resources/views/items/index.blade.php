@@ -6,7 +6,7 @@
         <div class="col-12">
         <div class="form-group pull-right">
             <div class="input-group">
-            <form action="{{ route('item.search',$items) }}" method="GET">
+            <form action="{{ route('item.search') }}" method="GET">
                 <input type="text" class="form-control" name="q" style="width:250px">
                 <span class="input-group-btn">
                 <button type="submit" class="btn btn-medium btn-primary pull-right">Cari</button>

@@ -21,14 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
     'prefix' => 'items'
 ], function(){
-    
     Route::get('/', 'ItemController@index')->name('item.index');
     Route::get('create','ItemController@create')->name('item.create');
     Route::post('store','ItemController@store')->name('item.store');
     Route::get('{item}/edit', 'ItemController@edit')->name('item.edit');
     Route::patch('{item}/edit','ItemController@update')->name('item.update');
     Route::delete('{item}/delete','ItemController@destroy')->name('item.destroy');
-    Route::get('/index', 'ItemController@search')->name('item.search');
+    Route::get('/search', 'ItemController@search')->name('item.search');
 });
 Route::group([
     'prefix' => 'suppliers'
@@ -39,7 +38,7 @@ Route::group([
     Route::get('{supplier}/edit', 'SupplierController@edit')->name('supplier.edit');
     Route::patch('{supplier}/edit','SupplierController@update')->name('supplier.update');
     Route::delete('{supplier}/delete','SupplierController@destroy')->name('supplier.destroy');
-    Route::get('/index', 'SupplierController@search')->name('supplier.search');
+    Route::get('/search', 'SupplierController@search')->name('supplier.search');
 });
 
 

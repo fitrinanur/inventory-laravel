@@ -8,17 +8,20 @@ use App\Category;
 use Cache;
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        if(Cache::has('items')){
-            $items = Cache::get('items');
+        $page = $request->get('page', 1);
+        $cache_name = 'items' . $page;
+        if (Cache::has($cache_name)){
+            $items = Cache::get($cache_name);
         } else {
             $items = Item::all();
-            Cache::put('items',$items,1);
+            Cache::put($cache_name, $items, 1);
         }
-        //$items = Item::latest()->paginate((env('PER_PAGE')));
-        return view('items.index',compact('items'));
+        $items = Item::latest()->paginate((env('PER_PAGE')));
+        return view('items.index', compact('items'));
     }
+
     public function create()
     {
         $categories = Category::all();

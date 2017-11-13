@@ -4,17 +4,16 @@
       function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
                 $('#showimage').attr('src', e.target.result);
             }
-
             reader.readAsDataURL(input.files[0]);
         }
-    }
+      }
 
-    $("#inputimage").change(function () {
-        readURL(this);
+    $("#inputimage").change(function (e) {
+      // console.log(e);
+      readURL(this);
     });
 
 </script>
@@ -56,7 +55,7 @@
   
           <div class="form-group has-feedback{{ $errors->has('descriptions')? 'has-error':''}}">
             <label for="">Descriptions</label>
-            <textarea name="descriptions" id="" class="form-control" cols="30" rows="5" placeholder="Add Descriptions" value="{{ old('descriptions') }}"></textarea>
+            <textarea name="descriptions" id="" class="form-control" cols="30" rows="5" placeholder="Add Descriptions" value="">{{ old('descriptions') }}</textarea>
             @if ($errors->has('descriptions'))
             <span class="help-block">
               <p>{{ $errors->first('descriptions') }}</p>
@@ -97,7 +96,7 @@
           <div class="form-group has-feedback{{ $errors->has('image')? 'has-error':''}}">
             <label for="">Image</label>
             <input type="file" name="image" id="inputimage" class="form-control"/>
-            <img class="form-control "src="http://placehold.it/100x100" id="showimage" style="max-width:200px;max-height:200px;float:left;" />
+            <img src="http://placehold.it/400x400" id="showimage" style="max-width:300px;max-height:600px;float:left;" />
             @if ($errors->has('image'))
             <span class="help-block">
               <p>{{ $errors->first('image') }}</p>

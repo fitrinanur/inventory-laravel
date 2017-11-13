@@ -51,7 +51,7 @@
                     <form action="{{ route('item.destroy',$item)}}" method='post'class=''>
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                  <button class="btn btn-danger" type="submit">Hapus</button>  
+                  <button class="btn btn-danger" type="submit" >Hapus</button>  
                   </form>
                 </td>
 

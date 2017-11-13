@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\City;
 
-class supplier extends Model
+class Supplier extends Model
 {
     protected $guarded= [];
     public function City()

@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/login', 'Api\AuthenticateController@authenticate');
+
+
+Route::middleware('jwt.auth')->get('/user', function (Request $request) {
+   
+    $user = JWTAuth::parseToken()->toUser();
+    return response()->json(compact('user'));
+});

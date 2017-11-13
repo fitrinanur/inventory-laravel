@@ -8,7 +8,7 @@
         Edit Item {{ $item->id }}
       </div>
       <div class="x_content">
-      <form action="{{ route('item.update',$item) }}" class="" method="post">
+      <form action="{{ route('item.update',$item) }}" class="" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
       {{ method_field('PATCH') }}
           <div class="form-group">
@@ -51,12 +51,15 @@
 
           <div class="form-group">
             <label>Photos</label>
-            <input type="file" name="image" id="inputimage" class="form-control" value="{{ $item->image }}"/>  
+            <input type="file" name="image" id="inputimage" class="form-control" value="{{ ($item->image) }}"/>  
             </div>
           <div class="form-group">
             <input type="submit" value="Save" class="btn btn-primary">
+            <button type="submit" class="btn btn-info"><a href="{{ route('item.index') }}">Back</a></button>
           </div>
+          
         </form>
+        
       </div>
     </div>
 

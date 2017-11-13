@@ -42,7 +42,7 @@
 
                     <!-- Right Side Of Navbar -->
                     
-        @include('layouts.partials._alerts')
+        @include('partials._alerts')
         @yield('content')
     </div>
 

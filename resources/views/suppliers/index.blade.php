@@ -37,7 +37,7 @@
         <tr>
         <th scope="row">@php echo $no++ @endphp</th>
         <td>{{ $supplier->supplier_name }}</td>
-        <td>{{ $supplier->phone }}}</td>
+        <td>{{ $supplier->phone }}</td>
         <td>{{ $supplier->email }}</td>
         <td>{{ $supplier->address }}</td>
         <td>{{ $supplier->city->city_name }}</td>

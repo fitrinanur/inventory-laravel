@@ -3,6 +3,7 @@
 @include('partials._head')
 
   <body>
+  @include('partials._alerts')
     @yield('content') 
     <!-- /page content -->
     

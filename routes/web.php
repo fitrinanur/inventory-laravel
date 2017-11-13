@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'Auth\LoginController@showLoginForm' , function () {
     return view('main');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group([
-    'prefix' => 'items'
+    'prefix' => 'items',  'middleware' => ['auth', 'role:admin']
 ], function(){
     Route::get('/', 'ItemController@index')->name('item.index');
     Route::get('create','ItemController@create')->name('item.create');
@@ -29,8 +30,9 @@ Route::group([
     Route::delete('{item}/delete','ItemController@destroy')->name('item.destroy');
     Route::get('/search', 'ItemController@search')->name('item.search');
 });
+
 Route::group([
-    'prefix' => 'suppliers'
+    'prefix' => 'suppliers', 'middleware' => ['auth', 'role:admin']
 ],function(){
     Route::get('/','SupplierController@index')->name('supplier.index');
     Route::get('create','SupplierController@create')->name('supplier.create');
@@ -40,5 +42,18 @@ Route::group([
     Route::delete('{supplier}/delete','SupplierController@destroy')->name('supplier.destroy');
     Route::get('/search', 'SupplierController@search')->name('supplier.search');
 });
+
+Route::group([
+    'prefix' => 'stocks', 'middleware' => ['auth', 'role:admin']
+],function(){
+    Route::get('/','StockController@index')->name('stock.index');
+    Route::get('create','StockController@create')->name('stock.create');
+    Route::post('store','StockController@store')->name('stock.store');
+    Route::get('out','StockController@checkout_form')->name('stock.out');
+});
+
+Route::get('/profile', 'ProfileController@index')->name('user.profile');
+
+
 
 

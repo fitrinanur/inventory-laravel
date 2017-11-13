@@ -48,7 +48,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
+                    <li><a href="{{ route('user.profile') }}"> Profile</a></li>
                     <li><a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -71,7 +71,9 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            @yield('content')
+        @include('partials._alerts')
+      
+        @yield('content')
         </div>
         <!-- /page content -->
 
@@ -82,5 +84,6 @@
     </div>
 
     @include('partials._script')
+    @yield('js')
   </body>
 </html>

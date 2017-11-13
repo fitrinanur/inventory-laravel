@@ -35,22 +35,22 @@
                     {{ csrf_field() }}
                         <div class="form-group">
                         <label>Name Supplier</label>
-                        <input type="text" name="supplier_name" class="form-control" placeholder="Add Supplier Name.."/>  
+                        <input type="text" name="supplier_name" class="form-control" placeholder="Add Supplier Name.." value="{{ old('supplier_name') }}"/>  
                         </div>
 
                         <div class="form-group">
                         <label>Phone Number</label>
-                        <input type="text" name="phone" class="form-control" placeholder="Add Phone Number.."/>  
+                        <input type="text" name="phone" class="form-control" placeholder="Add Phone Number.." value="{{ old('phone') }}"/>  
                         </div>
 
                         <div class="form-group">
                         <label>Email</label>
-                        <input type="text" name="email" class="form-control" placeholder="Add Emai.."/>  
+                        <input type="text" name="email" class="form-control" placeholder="Add Emai.." value="{{ old('email') }}"/>  
                         </div>
 
                         <div class="form-group">
                         <label>Address</label>
-                        <textarea col= 10 row=5 name="address" class="form-control"></textarea>
+                        <textarea col= 10 row=5 name="address" class="form-control">{{ old('address') }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -73,7 +73,8 @@
                     </form>
                  </div>
                  <div class="col-md-4">
-                 <img class="form-control "src="http://placehold.it/300x300" id="showimage" style="max-width:300px;max-height:300px;float:left;" />
+                 <img  
+                 src="http://placehold.it/200x200" id="showimage" style="max-width:200px;max-height:200px;float:left;" />
                  </div>
             </div>
         </div>

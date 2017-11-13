@@ -5,7 +5,7 @@ use App\Category;
 
 use Illuminate\Database\Eloquent\Model;
 
-class item extends Model
+class Item extends Model
 {
     protected $guarded =[];
     public function Category()
